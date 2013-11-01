@@ -9,7 +9,7 @@ The main class for web delivery is WebApplication.class.php. Wraps a number of b
 1. **php variables**
 	WebApplication can be used as a wrapper for built in php variables for $\_GET, $\_REQUEST and $\_COOKIE. As well as your session handler. 
 	
-	Get andsSet $\_GET:
+	Get ands set $\_GET:
 
 		WebApplication::setGet("var", $some_var);
 		$get_var = WebApplication::getGet("var");
@@ -41,6 +41,15 @@ The main class for web delivery is WebApplication.class.php. Wraps a number of b
 
 		$config_var = WebApplication::getConfiguration("application.config_var");
 
+	Also allows you to access a variable based on a certain prefix:
+
+		$databases = getConfigurationsWithPrefix("DB:");
+3. **cache**
+	Register and then access caches in the applications pool of caches.
+
+		WebApplication::addCache($mem_cache_object, 'memcache');
+		WebApplication::setCache('memcache_var', $value, 'memcache');
+		$memcache_var = WebApplication::getCache('memcache_var', 'memcache');
 
 Enjoy,
 
